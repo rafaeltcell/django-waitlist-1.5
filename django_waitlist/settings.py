@@ -1,4 +1,5 @@
 # Django settings for old project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -14,9 +15,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'django_waitlist_dev',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
-        'USER': 'ralba',
+        'USER': 'postgres',
         'PASSWORD': '',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'HOST': 'postgreshost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '',                      # Set to empty string for default.
     }
 }
@@ -102,14 +103,15 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'django-waitlist.urls'
+ROOT_URLCONF = 'django_waitlist.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'django-waitlist.wsgi.application'
+WSGI_APPLICATION = 'django_waitlist.wsgi.application'
+
+PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 
 TEMPLATE_DIRS = (
-    '/Users/ralba/Projects/github/django-waitlist-1.5/django-waitlist/templates',
-    '/Users/ralba/Projects/github/django-waitlist-1.5/waitlist/templates'
+    PROJECT_PATH + '/templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -136,26 +138,26 @@ SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 # the site admins on every HTTP 500 error when DEBUG=False.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
-    },
-    'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        }
-    },
-    'loggers': {
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': True,
-        },
-    }
-}
+# LOGGING = {
+    # 'version': 1,
+    # 'disable_existing_loggers': False,
+    # 'filters': {
+        # 'require_debug_false': {
+            # '()': 'django.utils.log.RequireDebugFalse'
+        # }
+    # },
+    # 'handlers': {
+        # 'mail_admins': {
+            # 'level': 'ERROR',
+            # 'filters': ['require_debug_false'],
+            # 'class': 'django.utils.log.AdminEmailHandler'
+        # }
+    # },
+    # 'loggers': {
+        # 'django.request': {
+            # 'handlers': ['mail_admins'],
+            # 'level': 'ERROR',
+            # 'propagate': True,
+        # },
+    # }
+# }
