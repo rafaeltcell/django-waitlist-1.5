@@ -1,0 +1,39 @@
+{% extends "site_base.html" %}
+
+{% block body_class %}home{% endblock %}
+
+{% block body_base %}
+    <section>
+        <div class="container">
+          <h1>django_waitlist</h1>
+
+          <h4>
+            <a href="/waitlist_entries">Waitlist Entries</a>
+          </h4>
+
+          <h3>Docker Images</h3>
+          <ul>
+            <li>web</li>
+            <li>tcell_web</li>
+          </ul>
+
+          <h3>Setup</h3>
+
+          <ul>
+            <li>1. docker-compose build</li>
+            <li>2. sh docker/initial_setup.sh # needs `psql`. creates db and seeds it.</li>
+            <li>3. docker-compose up web or docker-compose up tcell_web</li>
+          </ul>
+
+          <h3>Vulnerabilities</h3>
+
+          <ul>
+            <li>`http://host:port/vulnerabilities/search`</li>
+            <li>Input from search form is executed raw in the db thereby creating a security hole</li>
+            <li>&nbsp;</li>
+            <li>`http://host:port/vulnerabilities/sql_exception/`</li>
+            <li>Raw sql is malformed so it will raise an sql exception</li>
+          </ul>
+        </div>
+    </section>
+{% endblock %}
