@@ -87,3 +87,6 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+tcell/
+tcell_agent.config
