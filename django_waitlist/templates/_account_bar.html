@@ -2,9 +2,9 @@
 {% load account_tags %}
 
 <ul class="nav navbar-nav pull-right">
-    {% if request.user.is_authenticated %}
+    {% if user.is_authenticated %}
         <p class="navbar-text">
-            <i class="fa fa-user"></i> {% user_display request.user %}
+            <i class="fa fa-user"></i> {% user_display user %}
         </p>
         <li>
             <a id="logout" href="{% url 'logout' %}"><i class="fa fa-power-off"></i> {% trans "Log out" %}</a>
@@ -14,7 +14,7 @@
     {% endif %}
 </ul>
 
-{% if request.user.is_authenticated %}
+{% if user.is_authenticated %}
   <form id="accountLogOutForm" style="display: none;" action="{% url 'logout' %}" method="POST">
       {% csrf_token %}
   </form>

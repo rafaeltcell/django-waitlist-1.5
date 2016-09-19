@@ -133,7 +133,9 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'rest_framework',
     'after_response',
+
     'django_waitlist',
+
     'waitlist'
 )
 
@@ -167,3 +169,5 @@ SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
         # },
     # }
 # }
+
+LOGIN_REDIRECT_URL = "/"
