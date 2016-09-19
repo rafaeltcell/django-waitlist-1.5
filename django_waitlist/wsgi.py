@@ -21,6 +21,13 @@ import os
 # os.environ["DJANGO_SETTINGS_MODULE"] = "django_waitlist.settings"
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_waitlist.settings")
 
+# os.environ['TCELL_AGENT_CONFIG'] = '/code/tcell/tcell_agent.config'
+# os.environ['TCELL_AGENT_HOME'] = '/code/tcell'
+
+# import tcell_agent
+
+# tcell_agent.init()
+
 # This application object is used by any WSGI server configured to use this
 # file. This includes Django's development server, if the WSGI_APPLICATION
 # setting points here.

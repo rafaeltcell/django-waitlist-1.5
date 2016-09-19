@@ -1,6 +1,8 @@
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, redirect
 
+from django.http import HttpResponse
+
 from models import WaitlistEntry
 from forms import WaitlistEntryForm
 
@@ -23,6 +25,9 @@ def index(request):
         'waitlist_entry_form': waitlist_entry_form
     }
     return render(request, 'waitlist/index.html', context)
+
+def detail(request, question_id):
+    return HttpResponse("You're looking at question %s." % question_id)
 
 def failing(request):
      print('lsdkjf')

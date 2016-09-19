@@ -1,2 +1,7 @@
-Django==1.5.5
+Django==1.5.8
 psycopg2
+newrelic==2.58.1.44
+djangorestframework==2.3.13
+django-after-response==0.2.2
+django-braces==1.8.1
+uwsgi

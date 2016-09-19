@@ -1,6 +1,10 @@
 # Django settings for old project.
 import os
 
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
+BASE_DIR = PACKAGE_ROOT
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -101,6 +105,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'waitlist.middleware.load_entries_middleware.LoadEntriesMiddleware'
 )
 
 ROOT_URLCONF = 'django_waitlist.urls'
@@ -108,10 +113,8 @@ ROOT_URLCONF = 'django_waitlist.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'django_waitlist.wsgi.application'
 
-PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
-
 TEMPLATE_DIRS = (
-    PROJECT_PATH + '/templates',
+    PACKAGE_ROOT + '/templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -128,6 +131,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'rest_framework',
+    'after_response',
+    'django_waitlist',
     'waitlist'
 )
 
